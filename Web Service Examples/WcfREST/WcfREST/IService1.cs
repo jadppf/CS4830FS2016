@@ -18,8 +18,20 @@ namespace WcfREST
         IEnumerable<Product> GetAllProducts();
 
         [OperationContract]
-        [WebInvoke(Method ="GET", UriTemplate="Products/{id}", ResponseFormat=WebMessageFormat.Json)]
+        [WebInvoke(
+            Method ="GET", 
+            UriTemplate="Products/{id}", 
+            ResponseFormat=WebMessageFormat.Json)]
         Product GetProduct(string id);
+
+        [OperationContract]
+        [WebInvoke(
+            Method = "POST",
+            UriTemplate = "Products",
+            BodyStyle = WebMessageBodyStyle.Wrapped,
+            RequestFormat = WebMessageFormat.Json,
+            ResponseFormat = WebMessageFormat.Json)]
+        void AddProduct(string Name, string Category, decimal Price);
     }
 
 

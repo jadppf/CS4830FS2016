@@ -1,0 +1,6 @@
+C:\Proj\CS4830\CS4830FS2016\Web Service Examples\WcfREST\WcfREST\bin\WcfREST.dll.config
+C:\Proj\CS4830\CS4830FS2016\Web Service Examples\WcfREST\WcfREST\bin\WcfREST.dll
+C:\Proj\CS4830\CS4830FS2016\Web Service Examples\WcfREST\WcfREST\bin\WcfREST.pdb
+C:\Proj\CS4830\CS4830FS2016\Web Service Examples\WcfREST\WcfREST\obj\Debug\WcfREST.dll
+C:\Proj\CS4830\CS4830FS2016\Web Service Examples\WcfREST\WcfREST\obj\Debug\WcfREST.pdb
+C:\Proj\CS4830\CS4830FS2016\Web Service Examples\WcfREST\WcfREST\obj\Debug\WcfREST.csprojResolveAssemblyReference.cache
