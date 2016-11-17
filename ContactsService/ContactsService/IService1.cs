@@ -14,6 +14,12 @@ namespace ContactsService
     {
         [OperationContract]
         List<SVCPerson> ListPeople();
+
+        [OperationContract]
+        bool AddPerson(SVCPerson person);
+
+        [OperationContract]
+        bool DeletePerson(int idPerson);
     }
 
 

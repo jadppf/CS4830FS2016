@@ -1,4 +1,5 @@
-﻿using System;
+﻿//#define INSANE
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -19,7 +20,7 @@ namespace ContactsService
             using (var db = new ContactEntities())
             {
                 var query = from persons in db.People
-                          select persons;
+                            select persons;
 
 
                 foreach (var person in query)
@@ -43,6 +44,65 @@ namespace ContactsService
             }
 
             return (people);
+        }
+
+        public bool AddPerson(SVCPerson svcperson)
+        {
+            bool fResult = false;
+
+            Person person = new ContactsService.Person();
+            person.FirstName = svcperson.FirstName;
+            person.LastName = svcperson.LastName;
+            person.Email = new ContactsService.Email();
+            person.Email.EmailAddress = svcperson.Email;
+            person.Phone = new ContactsService.Phone();
+            person.Phone.Number = svcperson.Phone;
+
+            try
+            {
+                using (var db = new ContactEntities())
+                {
+                    db.People.Add(person);
+                    db.SaveChanges();
+                    fResult = true;
+                }
+            }
+            catch (Exception err)
+            {
+                // PROBLEM! - log this error
+            }
+
+            return (fResult);
+        }
+
+        public bool DeletePerson(int idPerson)
+        {
+            bool fResult = false;
+            try
+            {
+                using (var db = new ContactEntities())
+                {
+#if INSANE
+                Person dummy = new Person();
+                dummy.ID = idPerson;
+                db.People.Remove(dummy);
+#else
+                    var query = from persons in db.People
+                                where persons.ID.Equals(idPerson)
+                                select persons;
+                    db.People.Remove(query.FirstOrDefault());
+#endif
+                    db.SaveChanges();
+                    fResult = true;
+                }
+            }
+            catch (Exception err)
+            {
+                // PROBLEM! - log this error
+
+            }
+
+            return (fResult);
         }
     }
 }

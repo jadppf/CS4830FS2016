@@ -13,16 +13,54 @@
   <wsdl:message name="IContactsService_ListPeople_OutputMessage">
     <wsdl:part name="parameters" element="tns:ListPeopleResponse" />
   </wsdl:message>
+  <wsdl:message name="IContactsService_AddPerson_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPerson" />
+  </wsdl:message>
+  <wsdl:message name="IContactsService_AddPerson_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPersonResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContactsService_DeletePerson_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePerson" />
+  </wsdl:message>
+  <wsdl:message name="IContactsService_DeletePerson_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePersonResponse" />
+  </wsdl:message>
   <wsdl:portType name="IContactsService">
     <wsdl:operation name="ListPeople">
       <wsdl:input wsaw:Action="http://tempuri.org/IContactsService/ListPeople" message="tns:IContactsService_ListPeople_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IContactsService/ListPeopleResponse" message="tns:IContactsService_ListPeople_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPerson">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContactsService/AddPerson" message="tns:IContactsService_AddPerson_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContactsService/AddPersonResponse" message="tns:IContactsService_AddPerson_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePerson">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContactsService/DeletePerson" message="tns:IContactsService_DeletePerson_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContactsService/DeletePersonResponse" message="tns:IContactsService_DeletePerson_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IContactsService" type="tns:IContactsService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="ListPeople">
       <soap:operation soapAction="http://tempuri.org/IContactsService/ListPeople" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPerson">
+      <soap:operation soapAction="http://tempuri.org/IContactsService/AddPerson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePerson">
+      <soap:operation soapAction="http://tempuri.org/IContactsService/DeletePerson" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

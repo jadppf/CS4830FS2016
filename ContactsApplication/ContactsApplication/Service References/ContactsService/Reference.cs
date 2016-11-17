@@ -131,6 +131,18 @@ namespace ContactsApplication.ContactsService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContactsService/ListPeople", ReplyAction="http://tempuri.org/IContactsService/ListPeopleResponse")]
         System.Threading.Tasks.Task<ContactsApplication.ContactsService.SVCPerson[]> ListPeopleAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContactsService/AddPerson", ReplyAction="http://tempuri.org/IContactsService/AddPersonResponse")]
+        bool AddPerson(ContactsApplication.ContactsService.SVCPerson person);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContactsService/AddPerson", ReplyAction="http://tempuri.org/IContactsService/AddPersonResponse")]
+        System.Threading.Tasks.Task<bool> AddPersonAsync(ContactsApplication.ContactsService.SVCPerson person);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContactsService/DeletePerson", ReplyAction="http://tempuri.org/IContactsService/DeletePersonResponse")]
+        bool DeletePerson(int idPerson);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContactsService/DeletePerson", ReplyAction="http://tempuri.org/IContactsService/DeletePersonResponse")]
+        System.Threading.Tasks.Task<bool> DeletePersonAsync(int idPerson);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -166,6 +178,22 @@ namespace ContactsApplication.ContactsService {
         
         public System.Threading.Tasks.Task<ContactsApplication.ContactsService.SVCPerson[]> ListPeopleAsync() {
             return base.Channel.ListPeopleAsync();
+        }
+        
+        public bool AddPerson(ContactsApplication.ContactsService.SVCPerson person) {
+            return base.Channel.AddPerson(person);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AddPersonAsync(ContactsApplication.ContactsService.SVCPerson person) {
+            return base.Channel.AddPersonAsync(person);
+        }
+        
+        public bool DeletePerson(int idPerson) {
+            return base.Channel.DeletePerson(idPerson);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeletePersonAsync(int idPerson) {
+            return base.Channel.DeletePersonAsync(idPerson);
         }
     }
 }
